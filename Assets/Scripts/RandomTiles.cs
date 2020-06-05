@@ -52,7 +52,7 @@ public class RandomTiles : MonoBehaviour {
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                tilePos.y = (height / 2) - i;
+                tilePos.y = (height / 2) - (i + 1);
                 tilePos.x = j - (width / 2);
 
                 if (Maps.maps[index, i, j] == 0)
