@@ -1,6 +1,9 @@
+using UnityEngine;
 static class Maps
 {
-
+    public static int currentMap = 0;
+    public static int xSize = 21;
+    public static int ySize = 17;
     public static readonly int[,,] maps = {
         {{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
@@ -21,8 +24,15 @@ static class Maps
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0}}
 };
 
-    public static int bound(int dimension)
+    public static int Bound(int dimension)
     {
-        return maps.GetUpperBound(dimension);
+        return dimension == 1 ? xSize:ySize; 
+    }
+
+    public static bool IsGround(int x, int y){
+        int j = x + xSize/2 + 3;
+        int i = ySize/2 - y - 1;
+        Debug.Log($"Map[{i},{j}] = {maps[currentMap,i,j]} ");
+        return maps[currentMap,i,j] == 0? true:false;
     }
 }

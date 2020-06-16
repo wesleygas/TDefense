@@ -880,10 +880,10 @@ public class AstarPath : VersionedMonoBehaviour
             {
                 Debug.LogWarning(debug);
             }
-            else
-            {
-                Debug.Log(debug);
-            }
+            // else
+            // {
+            //     //Debug.Log(debug);
+            // }
         }
     }
 

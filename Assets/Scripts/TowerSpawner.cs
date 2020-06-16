@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
+using System.Text.RegularExpressions;
 public class TowerSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
     bool hasTower = false;
-    public GameObject Tower;
+    GameObject currTower;
+    public GameObject[] Towers;
     void Start()
     {
         
@@ -21,13 +23,18 @@ public class TowerSpawner : MonoBehaviour
     public void SpawnTower(){
         if(!hasTower){
             hasTower=true;
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
-            Instantiate(Tower,mousePos,Quaternion.identity);
         }
-        /*else{
-            //Troca a torre na mão
+        else{
+            Destroy(currTower);
         }
-        */
+        int towerNumber = int.Parse(Regex.Match(EventSystem.current.currentSelectedGameObject.name, @"\d+").Value);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        currTower = Instantiate(Towers[towerNumber],mousePos,Quaternion.identity);
+        
+    }
+
+    public void WasPlaced(){
+        hasTower = false;
     }
 }

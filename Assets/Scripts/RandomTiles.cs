@@ -60,8 +60,8 @@ public class RandomTiles : MonoBehaviour
         // random map generation
         Vector3Int tilePos = Vector3Int.zero;
         int index = 0;
-        int height = Maps.bound(1);
-        int width = Maps.bound(2);
+        int height = Maps.Bound(0);
+        int width = Maps.Bound(1);
 
         for (int i = 0; i < height; i++)
         {
