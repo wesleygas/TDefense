@@ -74,6 +74,6 @@ public class RandomTiles : MonoBehaviour
                     map.SetTile(tilePos, tiles[0]);
             }
         }
-        AstarPath.active.ScanAsync();
+        AstarPath.active.Scan();
     }
 }
