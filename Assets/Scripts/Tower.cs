@@ -7,6 +7,8 @@ public class Tower : MonoBehaviour
 
     private float last;
     public float delay = 5.0f;
+    public float radius = 3.0f;
+
     public GameObject bullet;
 
     void Start()
@@ -20,13 +22,11 @@ public class Tower : MonoBehaviour
         last = Time.time;
 
         GameObject[] enemies;
-        GameObject closest;
+        GameObject closest = null;
+        var min = radius;
 
         enemies = GameObject.FindGameObjectsWithTag("enemy");
 
-        if (enemies.Length == 0) return;
-        closest = enemies[0];
-        var min = Vector3.Distance(transform.position, enemies[0].transform.position);
         foreach (GameObject enemy in enemies)
         {
             var distance = Vector3.Distance(transform.position, enemy.transform.position);
@@ -37,9 +37,9 @@ public class Tower : MonoBehaviour
             }
         }
 
-        GameObject b = Instantiate(bullet, transform.position, transform.rotation);
-        Debug.Log("Joguei");
-        b.GetComponent<Bullet>().target = closest;
+        if (closest == null) return;
 
+        GameObject b = Instantiate(bullet, transform.position, transform.rotation);
+        b.GetComponent<Bullet>().target = closest;
     }
 }

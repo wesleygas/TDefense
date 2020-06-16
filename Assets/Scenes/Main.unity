@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 153290614}
   - component: {fileID: 153290613}
   - component: {fileID: 153290612}
+  - component: {fileID: 153290615}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: enemy
@@ -293,6 +294,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &153290615
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153290611}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11608136, y: -0.054169174}
+  m_Size: {x: 0.16761746, y: 0.2979624}
+  m_Direction: 0
 --- !u!1 &553924776
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,4 +822,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 5
+  radius: 10
   bullet: {fileID: 6162266340069823997, guid: 99a3e3a1266b640f087be2a0194489ea, type: 3}
