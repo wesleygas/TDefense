@@ -38,7 +38,7 @@ public class TowerSpawner : MonoBehaviour
             towerNumber = buttonNumber;
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
-            currTower = Instantiate(Towers[towerNumber],mousePos,Quaternion.identity);
+            currTower = Instantiate(Towers[towerNumber],mousePos,Towers[towerNumber].transform.rotation);
         }
     }
 

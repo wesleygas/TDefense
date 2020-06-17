@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileScript : MonoBehaviour
+public class ProjectileScript : MonoBehaviour
 {
     public GameObject target;
     public float speed = 1.0f;
     public int damage = 1;
+    public bool isVertical;
 
     private Rigidbody2D rb;
+
+    float angle;
 
     void Start()
     {
@@ -26,9 +29,14 @@ public class MissileScript : MonoBehaviour
             target.SendMessage("Damage", damage);
             Destroy(gameObject);
         }
-        float angle = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-        rb.AddForce(transform.right * Time.deltaTime * speed, ForceMode2D.Impulse);
+        if(isVertical){
+            angle = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = angle;
+            rb.AddForce(transform.up * Time.deltaTime * speed, ForceMode2D.Impulse);
+        }else{
+            angle = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg;
+            rb.rotation = angle;
+            rb.AddForce(transform.right * Time.deltaTime * speed, ForceMode2D.Impulse);
+        }
     }
-
 }

@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public int lifes = 100;
     public int coins = 100;
     public int damage = 1;
-    public int speed = 10;
+    public float speed = 10;
 
 
     void Start()
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
         target = GameObject.Find("target").transform;
         setter.target = target;
-        aIPath.maxSpeed += speed;
+        aIPath.maxSpeed = speed;
     }
 
     public void Damage(int damage = 1)
