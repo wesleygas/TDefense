@@ -6,9 +6,13 @@ public class PlacerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     bool placed = false;
+    public int price = 100;
+    GameObject uiController;
+    CurrencyManager currencyManager;
     void Start()
     {
-        
+        uiController = GameObject.Find("UIController");
+        currencyManager = uiController.GetComponent<CurrencyManager>();
     }
 
     // Update is called once per frame
@@ -31,8 +35,11 @@ public class PlacerScript : MonoBehaviour
 
     private void OnMouseDown(){
         if(Maps.IsGround((int)(gameObject.transform.position.x + .5f), (int)(gameObject.transform.position.y-.5f))){
-            placed = true;
-            GameObject.Find("UIController").GetComponent<TowerSpawner>().SendMessage("WasPlaced");
+            if(currencyManager.buyTower(price)){
+                placed = true;
+                uiController.GetComponent<TowerSpawner>().SendMessage("WasPlaced");
+            }
+            
         }
         
     }

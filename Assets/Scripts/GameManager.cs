@@ -18,8 +18,7 @@ public class GameManager : MonoBehaviour
     TextMeshProUGUI startText;
     void Start()
     {
-        startText = startButton.GetComponentsInChildren<TextMeshProUGUI>()[0];
-        Debug.Log(startText);
+        startText = startButton.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
