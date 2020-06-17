@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     public GameObject target;
     private Rigidbody2D rb;
     public float speed = 1.0f;
+    public int damage = 1;
+
 
 
     void Start()
@@ -23,6 +25,7 @@ public class Bullet : MonoBehaviour
 
         if (look.magnitude < 0.2f)
         {
+            target.SendMessage("Damage", damage);
             Destroy(gameObject);
         }
         float angle = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg - 90f;
