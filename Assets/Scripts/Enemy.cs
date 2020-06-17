@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         lifes -= damage;
         if (lifes < 0)
         {
-            animator.SetBool("dead", true);
+            animator.SetTrigger("dead");
             StartCoroutine(Die());
         }
     }
