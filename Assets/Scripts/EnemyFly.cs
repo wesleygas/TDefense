@@ -33,13 +33,13 @@ public class EnemyFLy : MonoBehaviour
 
     public void Update()
     {
-        if (target.position <= transform.position)
+        if (target.position.y <= transform.position.y)
         {
             GameState.habitants -= damage;
             Destroy(gameObject);
         }
 
-        transform.position.y += speed * Time.deltaTime;
+        transform.position = transform.position + Vector3.right * speed * Time.deltaTime;
     }
     IEnumerator Die()
     {
