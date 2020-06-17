@@ -9,37 +9,45 @@ public class Tower : MonoBehaviour
     public float delay = 5.0f;
     public float radius = 3.0f;
 
+    Transform headTransform;
+
     public GameObject bullet;
 
     void Start()
     {
-        last = -delay;
+        headTransform = transform.GetChild(0);
+        last = Time.time;
     }
     void Update()
     {
 
-        if (Time.time - last < delay) return;
-        last = Time.time;
-
         GameObject[] enemies;
         GameObject closest = null;
-        var min = radius;
 
         enemies = GameObject.FindGameObjectsWithTag("enemy");
 
         foreach (GameObject enemy in enemies)
         {
-            var distance = Vector3.Distance(transform.position, enemy.transform.position);
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
 
-            if (distance < min)
+            if (distance < radius)
             {
                 closest = enemy;
             }
         }
 
-        if (closest == null) return;
+        
 
-        GameObject b = Instantiate(bullet, transform.position, transform.rotation);
-        b.GetComponent<Bullet>().target = closest;
+        if (closest != null){
+            Vector3 look = closest.transform.position - headTransform.position;
+            float angle = Mathf.Atan2(look.y, look.x)* Mathf.Rad2Deg - 90f;
+            headTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            if (Time.time - last > delay){
+                last = Time.time;
+                //GameObject b = Instantiate(bullet, transform.position, transform.rotation);
+                //b.GetComponent<Bullet>().target = closest;
+                Debug.Log("Pey!");
+            }
+        }
     }
 }
