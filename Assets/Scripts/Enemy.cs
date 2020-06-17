@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+
+
         animator = GetComponent<Animator>();
         setter = GetComponent<AIDestinationSetter>();
         aIPath = GetComponent<AIPath>();
@@ -26,6 +28,12 @@ public class Enemy : MonoBehaviour
         target = GameObject.Find("target").transform;
         setter.target = target;
         aIPath.maxSpeed += speed;
+        aIPath.canMove = false;
+    }
+
+    public void Go()
+    {
+        aIPath.canMove = true;
     }
 
     public void Damage(int damage = 1)
@@ -48,6 +56,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Die()
     {
+        aIPath.canMove = false;
         yield return new WaitForSeconds(1f);
         GameState.coins += coins;
         Destroy(gameObject);
