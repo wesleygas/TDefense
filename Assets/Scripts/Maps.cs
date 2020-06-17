@@ -99,7 +99,7 @@ static class Maps
     public static bool IsGround(int x, int y){
         int j = x + xSize/2 + 3;
         int i = ySize/2 - y - 1;
-        Debug.Log($"Map[{i},{j}] = {maps[currentMap,i,j]} ");
+        Debug.Log($"Position: ({x},{y}) - Map[{i},{j}] = {maps[currentMap,i,j]} ");
         return maps[currentMap,i,j] == 0? true:false;
     }
 }

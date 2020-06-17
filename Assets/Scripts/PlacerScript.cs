@@ -19,8 +19,8 @@ public class PlacerScript : MonoBehaviour
             
             Vector3 newPosition = new Vector3();
             newPosition.z = 0;
-            newPosition.x = Mathf.Round(mousePos.x-.5f)+.5f;
-            newPosition.y = Mathf.Round(mousePos.y+.5f)-.5f;
+            newPosition.x = Mathf.Round(mousePos.x-.5f) + .5f;
+            newPosition.y = Mathf.Round(mousePos.y+.5f) - .5f;
             gameObject.transform.position = newPosition;
             if(mousePos.x < 6f && Input.GetMouseButtonDown(0)){
                 OnMouseDown();
@@ -30,7 +30,7 @@ public class PlacerScript : MonoBehaviour
     }
 
     private void OnMouseDown(){
-        if(Maps.IsGround((int)(gameObject.transform.position.x), (int)(gameObject.transform.position.y))){
+        if(Maps.IsGround((int)(gameObject.transform.position.x + .5f), (int)(gameObject.transform.position.y-.5f))){
             placed = true;
             GameObject.Find("UIController").GetComponent<TowerSpawner>().SendMessage("WasPlaced");
         }

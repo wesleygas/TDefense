@@ -7,7 +7,8 @@ public class TowerSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
     bool hasTower = false;
-    GameObject currTower;
+    GameObject currTower = null;
+    int towerNumber = -1;
     public GameObject[] Towers;
     void Start()
     {
@@ -21,20 +22,28 @@ public class TowerSpawner : MonoBehaviour
     }
 
     public void SpawnTower(){
-        if(!hasTower){
-            hasTower=true;
-        }
-        else{
+        int buttonNumber = int.Parse(Regex.Match(EventSystem.current.currentSelectedGameObject.name, @"\d+").Value);
+        if(hasTower){
+            hasTower = false;
             Destroy(currTower);
+            if(towerNumber != buttonNumber){
+                hasTower = true;
+                towerNumber = buttonNumber;
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0;
+                currTower = Instantiate(Towers[towerNumber],mousePos,Quaternion.identity);
+            }
+        }else{
+            hasTower = true;
+            towerNumber = buttonNumber;
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
+            currTower = Instantiate(Towers[towerNumber],mousePos,Quaternion.identity);
         }
-        int towerNumber = int.Parse(Regex.Match(EventSystem.current.currentSelectedGameObject.name, @"\d+").Value);
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        currTower = Instantiate(Towers[towerNumber],mousePos,Quaternion.identity);
-        
     }
 
     public void WasPlaced(){
         hasTower = false;
+        
     }
 }
