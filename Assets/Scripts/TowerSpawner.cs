@@ -21,8 +21,8 @@ public class TowerSpawner : MonoBehaviour
         
     }
 
-    public void SpawnTower(){
-        int buttonNumber = int.Parse(Regex.Match(EventSystem.current.currentSelectedGameObject.name, @"\d+").Value);
+    public void SpawnTower(string towerName){
+        int buttonNumber = int.Parse(Regex.Match(towerName, @"\d+").Value);
         if(hasTower){
             hasTower = false;
             Destroy(currTower);
