@@ -37,6 +37,7 @@ public class PlacerScript : MonoBehaviour
         if(Maps.IsGround((int)(gameObject.transform.position.x + .5f), (int)(gameObject.transform.position.y-.5f))){
             if(currencyManager.buyTower(price)){
                 placed = true;
+                gameObject.GetComponent<Tower>().SetPlaced(true);
                 uiController.GetComponent<TowerSpawner>().SendMessage("WasPlaced");
             }
             
