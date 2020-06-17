@@ -13,14 +13,17 @@ public class Tower : MonoBehaviour
 
     public GameObject bullet;
 
+    Animator animator;
+    bool placed = false;
     void Start()
     {
         headTransform = transform.GetChild(0);
         last = Time.time;
+        animator = gameObject.GetComponentInChildren<Animator>();
     }
     void Update()
     {
-
+        if(!placed) return;
         GameObject[] enemies;
         GameObject closest = null;
 
@@ -44,10 +47,15 @@ public class Tower : MonoBehaviour
             headTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             if (Time.time - last > delay){
                 last = Time.time;
-                //GameObject b = Instantiate(bullet, transform.position, transform.rotation);
-                //b.GetComponent<Bullet>().target = closest;
+                GameObject b = Instantiate(bullet, transform.position, transform.rotation);
+                b.GetComponent<MissileScript>().target = closest;
+                animator.SetTrigger("Fire");
                 Debug.Log("Pey!");
             }
         }
+    }
+
+    public void SetPlaced(bool placed){
+        this.placed = placed;
     }
 }
