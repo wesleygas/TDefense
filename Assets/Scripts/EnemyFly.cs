@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-
 public class EnemyFLy : MonoBehaviour
 {
     private Animator animator;
@@ -13,12 +12,20 @@ public class EnemyFLy : MonoBehaviour
     public int damage = 1;
     public int speed = 10;
 
+    public bool move = false;
 
+
+
+    public void Go()
+    {
+        move = true;
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
-
         target = GameObject.Find("target").transform;
+        move = false;
+
     }
 
     public void Damage(int damage = 1)
@@ -39,7 +46,10 @@ public class EnemyFLy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.position = transform.position + Vector3.right * speed * Time.deltaTime;
+        if (move)
+        {
+            transform.position = transform.position + Vector3.right * speed * Time.deltaTime;
+        }
     }
     IEnumerator Die()
     {
