@@ -48,7 +48,7 @@ public class CurrencyManager : MonoBehaviour
             moneyText.text = moneyAmount.ToString();
             return true;
         }else{
-            audioManager.Play("nocash");
+            if(audioManager) audioManager.Play("nocash");
             return false;
         }
     } 

@@ -17,6 +17,7 @@ public class StartButtonScript : MonoBehaviour
         startText = gameObject.GetComponent<TextMeshProUGUI>();
     }
     public void StartToggleFF(){
+        Debug.Log("Sent Message");
         if(hasStarted){
             if(isFF){
                 startText.text = "ENABLE FF";

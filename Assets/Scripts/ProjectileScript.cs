@@ -8,7 +8,6 @@ public class ProjectileScript : MonoBehaviour
     public float speed = 1.0f;
     public int damage = 1;
     public bool isVertical;
-
     private Rigidbody2D rb;
 
     float angle;
