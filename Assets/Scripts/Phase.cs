@@ -4,30 +4,58 @@ using UnityEngine;
 
 public class Phase : MonoBehaviour
 {
-    private int index = 0;
+    private int index;
 
     void Start()
     {
-        index = 0;
+        index = -1;
     }
 
 
     public (List<int>, List<Sprite>) Summary()
     {
-        return transform.GetChild(index).gameObject.GetComponent<Wave>().Summary();
+        int local = index;
+        if (local < 0)
+        {
+            local = 0;
+        }
+
+        return transform.GetChild(local).gameObject.GetComponent<Wave>().Summary();
     }
     public int Count()
     {
         return transform.childCount;
+    }
+
+    public bool RemainderWaves()
+    {
+
+        return (transform.childCount - (index + 1)) > 0;
+    }
+
+
+    public bool RemainderEnemies()
+    {
+
+        int local = index;
+
+        if (local < 0)
+        {
+            local = 0;
+        }
+
+        return transform.GetChild(local).gameObject.GetComponent<Wave>().Count() > 0;
     }
     public void Go()
     {
 
         if (index < transform.childCount)
         {
-            transform.GetChild(index).gameObject.SendMessage("Go");
             index += 1;
         }
+
+        transform.GetChild(index).gameObject.SendMessage("Go");
+
     }
 
 }

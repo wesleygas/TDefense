@@ -44,10 +44,26 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (GameObject.FindGameObjectsWithTag("enemy").Length == 0 || GameState.habitants == 0)
-        {
 
+        if (GameState.habitants == 0)
+        {
             GameOver();
+        }
+
+
+        bool enemies = phase.GetComponent<Phase>().RemainderEnemies();
+        if (!enemies)
+        {
+            bool Remainder = phase.GetComponent<Phase>().RemainderWaves();
+            if (Remainder)
+            {
+                hasStarted = false;
+                ResetToggleFF();
+            }
+            else
+            {
+                GameOver();
+            }
         }
     }
 
@@ -116,5 +132,9 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void ResetToggleFF()
+    {
+        startText.text = "START";
+    }
 
 }

@@ -17,6 +17,11 @@ public class WaveBlock : MonoBehaviour
 
 
     }
+
+    public int Count()
+    {
+        return transform.childCount;
+    }
     public void Go()
     {
         foreach (Transform child in transform)
