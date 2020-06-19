@@ -13,6 +13,7 @@ public class TowerSpawner : MonoBehaviour
     public GameObject[] Towers;
 
     AudioManager audioManager;
+
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();

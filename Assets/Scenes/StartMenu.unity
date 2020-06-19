@@ -584,7 +584,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 4da76352e1b952d40827ee9e2db6815d, type: 3}
     name: place
     pitch: 1
-    volume: 1
+    volume: 0.728
     loop: 0
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: ea6793f5d41847c499d599e1c74c83ce, type: 3}
@@ -596,7 +596,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 067f5fc6064485843a67c942e3ed0662, type: 3}
     name: cant
     pitch: 1
-    volume: 1
+    volume: 0.69
     loop: 0
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: dd2c0167199ed824c986f92cff0553f7, type: 3}

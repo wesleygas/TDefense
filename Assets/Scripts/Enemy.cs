@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private AIPath aIPath;
     private Transform target;
 
+    AudioSource deathAudio;
+
     public int lifes = 100;
     public int coins = 100;
     public int damage = 1;
@@ -20,7 +22,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
 
-
+        deathAudio = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         setter = GetComponent<AIDestinationSetter>();
         aIPath = GetComponent<AIPath>();
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
         lifes -= damage;
         if (lifes < 0)
         {
+            deathAudio.Play();
             animator.SetTrigger("dead");
             StartCoroutine(Die());
         }

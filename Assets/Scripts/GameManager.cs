@@ -105,5 +105,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void startPower(int cost){
+        CurrencyManager currencyManager = FindObjectOfType<CurrencyManager>();
+        if(currencyManager.useEnergy(cost)){
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("tower");
+            foreach(GameObject enemy in enemies){
+                enemy.SendMessage("startPower");
+            }
+        }
+        
+    }
+
 
 }

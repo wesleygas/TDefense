@@ -60,8 +60,16 @@ public class CurrencyManager : MonoBehaviour
         }
     }
 
-    public void useEnergy(int amount)
+    public bool useEnergy(int amount)
     {
+        if(amount <= energyAmount){
+            energyAmount -= amount;
+            energyText.text = energyAmount.ToString();
+            return true;
+        }else{
+            if(audioManager) audioManager.Play("cant");
+            return false;
+        }
 
     }
 }

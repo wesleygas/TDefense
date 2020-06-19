@@ -16,11 +16,11 @@ public class Tower : MonoBehaviour
 
     public bool isLaser = false;
     public int LaserDamage = 10;
+    public SpriteRenderer powerIndicator;
 
     Animator animator;
     LineRenderer lineRenderer;
-
-
+    
     bool placed = false;
     void Start()
     {
@@ -46,8 +46,6 @@ public class Tower : MonoBehaviour
                 closest = enemy;
             }
         }
-
-        
 
         if (closest != null){
             Vector3 look = closest.transform.position - headTransform.position;
@@ -75,6 +73,19 @@ public class Tower : MonoBehaviour
 
     public void SetPlaced(bool placed){
         this.placed = placed;
+    }
+
+    public void startPower(){
+        StartCoroutine("powerTimer");
+    }
+
+    IEnumerator powerTimer(){
+        float prevDelay = delay;
+        delay /= 2;
+        powerIndicator.enabled = true;
+        yield return new WaitForSeconds(10);
+        delay = prevDelay;
+        powerIndicator.enabled = false;
     }
 
 
