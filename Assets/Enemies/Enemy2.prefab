@@ -223,10 +223,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafeb3d9dadd048e388265692e4b08d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
+  lifes: 10
   coins: 100
   damage: 1
-  speed: 1
+  speed: 1.5
 --- !u!82 &82713493267214146
 AudioSource:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d1f0bc16925576498032cd1ee72a3d0, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

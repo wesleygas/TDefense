@@ -223,8 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafeb3d9dadd048e388265692e4b08d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathAudio: {fileID: 0}
-  lifes: 100
+  lifes: 40
   coins: 100
   damage: 1
   speed: 1

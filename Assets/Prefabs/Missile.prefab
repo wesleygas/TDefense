@@ -116,9 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 2
-  damage: 1
+  damage: 20
   isVertical: 0
-  birthSound: {fileID: 82266587570161488}
 --- !u!50 &1685875036630176673
 Rigidbody2D:
   serializedVersion: 4

@@ -213,11 +213,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 3
-  radius: 3
+  radius: 4
   bullet: {fileID: 0}
   laserShot: {fileID: 82533128759778450}
   isLaser: 1
-  LaserDamage: 10
+  LaserDamage: 15
   powerIndicator: {fileID: 2734717402362397309}
 --- !u!82 &82533128759778450
 AudioSource:
