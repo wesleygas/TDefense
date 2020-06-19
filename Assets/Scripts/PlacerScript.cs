@@ -40,6 +40,7 @@ public class PlacerScript : MonoBehaviour
     }
 
     private void OnMouseDown(){
+        if(placed) return;
         if(Maps.IsGround((int)(gameObject.transform.position.x + .5f), (int)(gameObject.transform.position.y-.5f))){
             if(currencyManager.buyTower(price)){
                 placed = true;

@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 100
+  speed: 130
   damage: 10
   isVertical: 1
 --- !u!50 &3829144118698396116
@@ -111,7 +111,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 10
+  m_LinearDrag: 18
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}

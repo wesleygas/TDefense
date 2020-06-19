@@ -41,7 +41,7 @@ public class Tower : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
 
-            if (distance < radius)
+            if (enemy.transform.position.x > -14f && distance < radius)
             {
                 closest = enemy;
             }
