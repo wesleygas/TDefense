@@ -12,12 +12,14 @@ public class Tower : MonoBehaviour
     Transform headTransform;
 
     public GameObject bullet;
+    public AudioSource laserShot;
 
     public bool isLaser = false;
     public int LaserDamage = 10;
 
     Animator animator;
     LineRenderer lineRenderer;
+
 
     bool placed = false;
     void Start()
@@ -57,6 +59,8 @@ public class Tower : MonoBehaviour
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, closest.transform.position);
                     StartCoroutine("Shoot",closest);
+                    laserShot.Play();
+
                 }else{
                     GameObject b = Instantiate(bullet, transform.position, transform.rotation);
                     b.GetComponent<ProjectileScript>().target = closest;
@@ -77,7 +81,7 @@ public class Tower : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         lineRenderer.enabled = true;
         yield return new WaitForSeconds(.1f);
-        closest.GetComponent<Enemy>().Damage(LaserDamage);
+        //closest.GetComponent<Enemy>().Damage(LaserDamage);
         lineRenderer.enabled = false;
     }
 }
