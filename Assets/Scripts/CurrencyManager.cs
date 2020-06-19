@@ -29,21 +29,28 @@ public class CurrencyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void UpdateStats() {
-        moneyAmount+=moneyPerSecond;
+    void UpdateStats()
+    {
+
+        if (GameManager.IsPaused || !GameManager.hasStarted) return;
+
+        moneyAmount += moneyPerSecond;
         moneyText.text = moneyAmount.ToString();
-        energyAmount+= energyPerSecond;
-        if(energyAmount > maxEnergy){
+        energyAmount += energyPerSecond;
+        if (energyAmount > maxEnergy)
+        {
             energyAmount = maxEnergy;
         }
         energyText.text = energyAmount.ToString("F0");
     }
 
-    public bool buyTower(int price){
-        if(price <= moneyAmount){
+    public bool buyTower(int price)
+    {
+        if (price <= moneyAmount)
+        {
             moneyAmount -= price;
             moneyText.text = moneyAmount.ToString();
             return true;
@@ -51,9 +58,10 @@ public class CurrencyManager : MonoBehaviour
             if(audioManager) audioManager.Play("nocash");
             return false;
         }
-    } 
+    }
 
-    public void useEnergy(int amount){
+    public void useEnergy(int amount)
+    {
 
     }
 }
