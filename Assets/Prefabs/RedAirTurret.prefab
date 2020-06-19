@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 5
-  radius: 3
+  radius: 6
   bullet: {fileID: 3829144118698396119, guid: bac07e39fe25b334793aa0a113a3d472, type: 3}
   laserShot: {fileID: 0}
   isLaser: 0
