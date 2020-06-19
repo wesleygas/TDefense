@@ -21,6 +21,22 @@ public class Wave : MonoBehaviour
         canGo = true;
     }
 
+    public (List<int>, List<Sprite>) Summary()
+    {
+
+        List<int> counts = new List<int>();
+        List<Sprite> sprites = new List<Sprite>();
+
+        for (int i = index; i < transform.childCount; i++)
+        {
+            (int count, Sprite sprite) = transform.GetChild(index).gameObject.GetComponent<WaveBlock>().Summary();
+            counts.Add(count);
+            sprites.Add(sprite);
+        }
+
+        return (counts, sprites);
+    }
+
     void Update()
     {
         if (canGo && index < transform.childCount && (Time.time - last > delay))

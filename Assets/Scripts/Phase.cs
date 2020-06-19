@@ -11,6 +11,11 @@ public class Phase : MonoBehaviour
         index = 0;
     }
 
+
+    public (List<int>, List<Sprite>) Summary()
+    {
+        return transform.GetChild(index).gameObject.GetComponent<Wave>().Summary();
+    }
     public int Count()
     {
         return transform.childCount;
