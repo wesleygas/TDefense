@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     private GameObject phase;
 
     public GameObject startButton;
+    public GameObject gameOverMenu;
+
     TextMeshProUGUI startText;
     void Start()
     {
@@ -39,6 +41,20 @@ public class GameManager : MonoBehaviour
                 Pause();
             }
         }
+
+        if (GameObject.FindGameObjectsWithTag("enemy").Length == 0 || GameState.habitants == 0)
+        {
+
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        gameOverMenu.SetActive(true);
+        currTimeScale = Time.timeScale;
+        Time.timeScale = 0f;
+        IsPaused = true;
     }
 
     public void Pause()

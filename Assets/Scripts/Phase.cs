@@ -23,7 +23,6 @@ public class Phase : MonoBehaviour
     public void Go()
     {
 
-        Debug.Log("go");
         if (index < transform.childCount)
         {
             transform.GetChild(index).gameObject.SendMessage("Go");
