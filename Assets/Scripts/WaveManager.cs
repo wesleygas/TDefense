@@ -20,11 +20,15 @@ public class WaveManager : MonoBehaviour
         if (counts.Capacity > 0)
         {
 
-            tmp = Instantiate(enemyEntry, enemySummary.transform.position, Quaternion.identity);
+            tmp = Instantiate(enemyEntry, Vector3.zero, Quaternion.identity);
             tmp.transform.SetParent(enemySummary.transform);
+            //tmp.transform.localPosition = Vector3.zero;
+            RectTransform rt = tmp.GetComponent<RectTransform>();
+            rt.offsetMin = rt.offsetMax = Vector2.zero;
+
             Image image = tmp.transform.GetChild(0).GetComponent<Image>();
             TextMeshProUGUI text = tmp.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            text.text = "5";
+            text.text = counts[0].ToString();
             image.sprite = sprites[0];
 
         }
