@@ -12,6 +12,7 @@ public class RandomTiles : MonoBehaviour
 
     public Tile[] tiles;
     public GameObject Search;
+    public int index;
 
     void Start()
     {
@@ -59,7 +60,6 @@ public class RandomTiles : MonoBehaviour
 
         // random map generation
         Vector3Int tilePos = Vector3Int.zero;
-        int index = 0;
         int height = Maps.Bound(0);
         int width = Maps.Bound(1);
 

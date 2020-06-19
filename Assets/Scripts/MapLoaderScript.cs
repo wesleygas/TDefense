@@ -8,9 +8,10 @@ public class MapLoaderScript : MonoBehaviour
     // Start is called before the first frame update
 
 
-    public void LoadMapa1()
+    public void LoadMap(int map)
     {
         GameState.reset();
-        SceneManager.LoadScene("Mapa1");
+        Maps.currentMap = map;
+        SceneManager.LoadScene("Mapa"+(map+1).ToString());
     }
 }
