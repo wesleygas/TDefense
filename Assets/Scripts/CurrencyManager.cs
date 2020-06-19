@@ -14,8 +14,10 @@ public class CurrencyManager : MonoBehaviour
     int moneyAmount = 100;
     TextMeshProUGUI moneyText, maxEnergyText, energyText;
     AudioManager audioManager;
+    GameManager gameManager;
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();
         moneyText = GameObject.Find("Money").GetComponentInChildren<TextMeshProUGUI>();
         maxEnergyText = GameObject.Find("Energy/MaxEnergy").GetComponent<TextMeshProUGUI>();
@@ -35,7 +37,7 @@ public class CurrencyManager : MonoBehaviour
     void UpdateStats()
     {
 
-        if (GameManager.IsPaused || !GameManager.hasStarted) return;
+        if (gameManager.IsPaused || !gameManager.hasStarted) return;
 
         moneyAmount += moneyPerSecond;
         moneyText.text = moneyAmount.ToString();

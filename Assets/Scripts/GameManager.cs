@@ -7,8 +7,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static bool IsPaused = false;
-    public static bool hasStarted = false;
+    public bool IsPaused = false;
+    public bool hasStarted = false;
     bool isFF = false;
     public float ff_scale = 3f;
     float currTimeScale;
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         phase = GameObject.Find("phase");
         hasStarted = false;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
