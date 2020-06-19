@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 2
-  damage: 20
+  damage: 10
   isVertical: 0
 --- !u!50 &1685875036630176673
 Rigidbody2D:

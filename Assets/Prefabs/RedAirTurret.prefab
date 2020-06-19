@@ -182,6 +182,8 @@ MonoBehaviour:
   laserShot: {fileID: 0}
   isLaser: 0
   LaserDamage: 10
+  targetsAir: 0
+  targetsGround: 1
   powerIndicator: {fileID: 395815149193897010}
 --- !u!114 &6232146954988684505
 MonoBehaviour:

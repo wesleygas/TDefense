@@ -218,6 +218,8 @@ MonoBehaviour:
   laserShot: {fileID: 82533128759778450}
   isLaser: 1
   LaserDamage: 15
+  targetsAir: 0
+  targetsGround: 1
   powerIndicator: {fileID: 2734717402362397309}
 --- !u!82 &82533128759778450
 AudioSource:

@@ -16,6 +16,8 @@ public class Tower : MonoBehaviour
 
     public bool isLaser = false;
     public int LaserDamage = 10;
+    public bool targetsAir = false;
+    public bool targetsGround = false;
     public SpriteRenderer powerIndicator;
 
     Animator animator;
@@ -34,16 +36,40 @@ public class Tower : MonoBehaviour
         if(!placed) return;
         GameObject[] enemies;
         GameObject closest = null;
-
-        enemies = GameObject.FindGameObjectsWithTag("enemy");
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (enemy.transform.position.x > -14f && distance < radius)
+        if(targetsGround){
+            enemies = GameObject.FindGameObjectsWithTag("groundEnemy");
+        
+            foreach (GameObject enemy in enemies)
             {
-                closest = enemy;
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (enemy.transform.position.x > -14f && distance < radius )
+                {
+                    if(closest && distance < Vector3.Distance(transform.position, closest.transform.position)){
+                        closest = enemy;
+                    }else if(closest == null){
+                        closest = enemy;
+                    }
+                    
+                }
+            }
+        }
+        if(targetsAir){
+            enemies = GameObject.FindGameObjectsWithTag("airEnemy");
+        
+            foreach (GameObject enemy in enemies)
+            {
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (enemy.transform.position.x > -14f && distance < radius )
+                {
+                    if(closest && distance < Vector3.Distance(transform.position, closest.transform.position)){
+                        closest = enemy;
+                    }else if(closest == null){
+                        closest = enemy;
+                    }
+                    
+                }
             }
         }
 
