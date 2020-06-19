@@ -11,9 +11,12 @@ public class ProjectileScript : MonoBehaviour
     private Rigidbody2D rb;
 
     float angle;
+    AudioManager audioManager;
 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
+        if(audioManager) audioManager.Play("shoot");
         rb = GetComponent<Rigidbody2D>();
     }
 

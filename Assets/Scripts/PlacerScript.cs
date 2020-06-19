@@ -47,7 +47,8 @@ public class PlacerScript : MonoBehaviour
                 gameObject.GetComponent<Tower>().SetPlaced(true);
                 uiController.GetComponent<TowerSpawner>().SendMessage("WasPlaced");
             }
-            
+        }else{
+            if(audioManager) audioManager.Play("cant");
         }
         
     }
