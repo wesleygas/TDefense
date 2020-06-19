@@ -629,6 +629,24 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a6ff56d5bf75560488746187eb572d85, type: 3}
+    name: shoot
+    pitch: 1
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 84d7ad9d3d6093345a00df397d90081d, type: 3}
+    name: fastTime
+    pitch: 1
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a1f703f2d246a3f40a5641108ad47197, type: 3}
+    name: restoreTime
+    pitch: 1
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &617609281
 Transform:
   m_ObjectHideFlags: 0

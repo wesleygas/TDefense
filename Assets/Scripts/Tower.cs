@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
     private float last;
     public float delay = 5.0f;
     public float radius = 3.0f;
-
+    
     Transform headTransform;
 
     public GameObject bullet;
@@ -58,7 +58,8 @@ public class Tower : MonoBehaviour
                 if(isLaser){
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, closest.transform.position);
-                    StartCoroutine("Shoot",closest);
+                    GameObject target = closest; 
+                    StartCoroutine("Shoot",target);
                     laserShot.Play();
 
                 }else{
@@ -81,7 +82,7 @@ public class Tower : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         lineRenderer.enabled = true;
         yield return new WaitForSeconds(.1f);
-        //closest.GetComponent<Enemy>().Damage(LaserDamage);
+        closest.GetComponent<Enemy>().Damage(LaserDamage);
         lineRenderer.enabled = false;
     }
 }

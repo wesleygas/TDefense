@@ -8,13 +8,15 @@ public class ProjectileScript : MonoBehaviour
     public float speed = 1.0f;
     public int damage = 1;
     public bool isVertical;
-
     private Rigidbody2D rb;
 
     float angle;
+    AudioManager audioManager;
 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
+        if(audioManager) audioManager.Play("shoot");
         rb = GetComponent<Rigidbody2D>();
     }
 

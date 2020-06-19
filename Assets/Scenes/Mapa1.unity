@@ -2282,7 +2282,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1027162595
 RectTransform:
@@ -3440,7 +3440,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &2036393394
 RectTransform:
@@ -4001,7 +4001,6 @@ GameObject:
   - component: {fileID: 4480576202019856630}
   - component: {fileID: 4480576202019856628}
   - component: {fileID: 4480576202019856629}
-  - component: {fileID: 4480576202019856632}
   m_Layer: 5
   m_Name: StartText
   m_TagString: Untagged
@@ -4009,18 +4008,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4480576202019856632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4480576202019856631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8151583866616240b3be9f8f66a1e02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4480576202333930000
 GameObject:
   m_ObjectHideFlags: 0

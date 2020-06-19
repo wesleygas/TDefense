@@ -18,11 +18,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject startButton;
     public GameObject gameOverMenu;
+    AudioManager audioManager;
 
     TextMeshProUGUI startText;
     void Start()
     {
         startText = startButton.GetComponentInChildren<TextMeshProUGUI>();
+        audioManager = FindObjectOfType<AudioManager>();
         phase = GameObject.Find("phase");
         hasStarted = false;
     }
@@ -101,11 +103,13 @@ public class GameManager : MonoBehaviour
             {
                 startText.text = "ENABLE FF";
                 Time.timeScale = 1f;
+                if(audioManager) audioManager.Play("restoreTime");
             }
             else
             {
                 startText.text = " >> FF >>";
                 Time.timeScale = ff_scale;
+                if(audioManager) audioManager.Play("fastTime");
             }
             isFF = !isFF;
         }

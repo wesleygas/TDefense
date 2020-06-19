@@ -15,7 +15,7 @@ public class TowerSpawner : MonoBehaviour
     AudioManager audioManager;
     void Start()
     {
-        audioManager = GameObject.FindObjectOfType<AudioManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
