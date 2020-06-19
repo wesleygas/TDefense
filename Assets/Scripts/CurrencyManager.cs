@@ -13,8 +13,10 @@ public class CurrencyManager : MonoBehaviour
     float energyAmount = 0;
     int moneyAmount = 100;
     TextMeshProUGUI moneyText, maxEnergyText, energyText;
+    AudioManager audioManager;
     void Start()
     {
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
         moneyText = GameObject.Find("Money").GetComponentInChildren<TextMeshProUGUI>();
         maxEnergyText = GameObject.Find("Energy/MaxEnergy").GetComponent<TextMeshProUGUI>();
         energyText = GameObject.Find("Energy/CurrEnergy").GetComponent<TextMeshProUGUI>();
@@ -46,6 +48,7 @@ public class CurrencyManager : MonoBehaviour
             moneyText.text = moneyAmount.ToString();
             return true;
         }else{
+            audioManager.Play("nocash");
             return false;
         }
     } 

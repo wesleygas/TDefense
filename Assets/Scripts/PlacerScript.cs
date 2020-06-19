@@ -9,10 +9,12 @@ public class PlacerScript : MonoBehaviour
     public int price = 100;
     GameObject uiController;
     CurrencyManager currencyManager;
+    AudioManager audioManager;
     void Start()
     {
         uiController = GameObject.Find("UIController");
         currencyManager = uiController.GetComponent<CurrencyManager>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class PlacerScript : MonoBehaviour
         if(Maps.IsGround((int)(gameObject.transform.position.x + .5f), (int)(gameObject.transform.position.y-.5f))){
             if(currencyManager.buyTower(price)){
                 placed = true;
+                if(audioManager) audioManager.Play("place");
                 gameObject.GetComponent<Tower>().SetPlaced(true);
                 uiController.GetComponent<TowerSpawner>().SendMessage("WasPlaced");
             }
