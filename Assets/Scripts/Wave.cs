@@ -18,7 +18,6 @@ public class Wave : MonoBehaviour
 
     void Go()
     {
-        Debug.Log("Start Wave " + gameObject.name);
         canGo = true;
     }
 
@@ -54,14 +53,13 @@ public class Wave : MonoBehaviour
         {
             count += transform.GetChild(i).gameObject.transform.childCount;
         }
-        Debug.Log("COUNT " + count.ToString());
 
         return count;
 
     }
     void Update()
     {
-        if (canGo && index < transform.childCount && (Time.time - last > delay))
+        if (canGo && index < (transform.childCount - 1) && (Time.time - last > delay))
         {
             index += 1;
             last = Time.time;

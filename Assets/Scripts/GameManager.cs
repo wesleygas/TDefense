@@ -62,8 +62,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-
-                Debug.Log("aqui!");
                 GameOver();
             }
         }
@@ -119,6 +117,7 @@ public class GameManager : MonoBehaviour
         {
             phase.SendMessage("Go");
             hasStarted = true;
+            IsPaused = false;
             Time.timeScale = 1f;
             startText.text = "ENABLE FF";
         }
@@ -140,7 +139,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetToggleFF()
     {
-        startText.text = "START";
+        startText.text = "NEXT WAVE";
         isFF = false;
         Time.timeScale = 1f;
 
