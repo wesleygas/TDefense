@@ -19,7 +19,11 @@ public class ProjectileScript : MonoBehaviour
 
     void Update()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        };
         Vector3 look = target.transform.position - transform.position;
 
 
@@ -27,12 +31,16 @@ public class ProjectileScript : MonoBehaviour
         {
             target.SendMessage("Damage", damage);
             Destroy(gameObject);
+            return;
         }
-        if(isVertical){
+        if (isVertical)
+        {
             angle = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg - 90f;
             rb.rotation = angle;
             rb.AddForce(transform.up * Time.deltaTime * speed, ForceMode2D.Impulse);
-        }else{
+        }
+        else
+        {
             angle = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg;
             rb.rotation = angle;
             rb.AddForce(transform.right * Time.deltaTime * speed, ForceMode2D.Impulse);
