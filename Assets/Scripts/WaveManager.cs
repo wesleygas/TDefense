@@ -7,17 +7,32 @@ public class WaveManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    TextMeshProUGUI habitantsText, maxHabitantsText;
+    private GameObject enemySummary, phase;
+    public GameObject enemyEntry;
     void Start()
     {
-        habitantsText = GameObject.Find("Habitants/CurrHabitants").GetComponent<TextMeshProUGUI>();
-        maxHabitantsText = GameObject.Find("Habitants/MaxHabitants").GetComponent<TextMeshProUGUI>();
-        maxHabitantsText.text = "/ " + GameState.maxHabitants.ToString();
+        enemySummary = GameObject.Find("EnemySummary");
+        phase = GameObject.Find("phase");
+
+        GameObject tmp;
+        (List<int> counts, List<Sprite> sprites) = phase.GetComponent<Phase>().Summary();
+
+        if (counts.Capacity > 0)
+        {
+
+            tmp = Instantiate(enemyEntry, enemySummary.transform.position, Quaternion.identity);
+            tmp.transform.SetParent(enemySummary.transform);
+            Image image = tmp.transform.GetChild(0).GetComponent<Image>();
+            TextMeshProUGUI text = tmp.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            text.text = "5";
+            image.sprite = sprites[0];
+
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        habitantsText.text = GameState.habitants.ToString();
-    }
+    // void Update()
+    // {
+
+    // }
 }
