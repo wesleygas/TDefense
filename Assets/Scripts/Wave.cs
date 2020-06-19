@@ -11,7 +11,7 @@ public class Wave : MonoBehaviour
 
     void Start()
     {
-        index = 0;
+        index = -1;
         last = Time.time - delay;
         canGo = false;
     }
@@ -28,9 +28,16 @@ public class Wave : MonoBehaviour
         List<int> counts = new List<int>();
         List<Sprite> sprites = new List<Sprite>();
 
-        for (int i = index; i < transform.childCount; i++)
+        int local = index;
+
+        if (local < 0)
         {
-            (int count, Sprite sprite) = transform.GetChild(index).gameObject.GetComponent<WaveBlock>().Summary();
+            local = 0;
+        }
+
+        for (int i = local; i < transform.childCount; i++)
+        {
+            (int count, Sprite sprite) = transform.GetChild(i).gameObject.GetComponent<WaveBlock>().Summary();
             counts.Add(count);
             sprites.Add(sprite);
         }
@@ -42,12 +49,12 @@ public class Wave : MonoBehaviour
     public int Count()
     {
         int count = 0;
-        if (index == 0) return count;
 
-        for (int i = index - 1; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
-            count += transform.GetChild(i).gameObject.GetComponent<WaveBlock>().Count();
+            count += transform.GetChild(i).gameObject.transform.childCount;
         }
+        Debug.Log("COUNT " + count.ToString());
 
         return count;
 
@@ -56,9 +63,9 @@ public class Wave : MonoBehaviour
     {
         if (canGo && index < transform.childCount && (Time.time - last > delay))
         {
+            index += 1;
             last = Time.time;
             transform.GetChild(index).gameObject.SendMessage("Go");
-            index += 1;
         }
     }
 

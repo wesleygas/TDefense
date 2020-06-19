@@ -22,10 +22,10 @@ public class Phase : MonoBehaviour
 
         return transform.GetChild(local).gameObject.GetComponent<Wave>().Summary();
     }
-    public int Count()
-    {
-        return transform.childCount;
-    }
+    // public int Count()
+    // {
+    //     return transform.childCount;
+    // }
 
     public bool RemainderWaves()
     {
@@ -44,10 +44,13 @@ public class Phase : MonoBehaviour
             local = 0;
         }
 
-        return transform.GetChild(local).gameObject.GetComponent<Wave>().Count() > 0;
+        int count = transform.GetChild(local).gameObject.GetComponent<Wave>().Count();
+        return count > 0;
     }
     public void Go()
     {
+
+        Debug.Log("GOOOOOO!");
 
         if (index < transform.childCount)
         {
