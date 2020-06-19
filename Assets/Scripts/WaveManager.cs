@@ -13,7 +13,7 @@ public class WaveManager : MonoBehaviour
     {
         enemySummary = GameObject.Find("EnemySummary");
         phase = GameObject.Find("phase");
-        InvokeRepeating("UpdateStats", 1f, 1f);
+        InvokeRepeating("UpdateStats", 0f, 1f);
 
     }
 
@@ -23,8 +23,10 @@ public class WaveManager : MonoBehaviour
         foreach (Transform child in enemySummary.transform) children.Add(child.gameObject);
         children.ForEach(child => Destroy(child));
 
+
         GameObject tmp;
         (List<int> counts, List<Sprite> sprites) = phase.GetComponent<Phase>().Summary();
+        if (counts.Count == 0) return;
 
         for (int i = 0; i < counts.Count && i < 4; i++)
         {

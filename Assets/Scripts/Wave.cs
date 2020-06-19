@@ -27,14 +27,7 @@ public class Wave : MonoBehaviour
         List<int> counts = new List<int>();
         List<Sprite> sprites = new List<Sprite>();
 
-        int local = index;
-
-        if (local < 0)
-        {
-            local = 0;
-        }
-
-        for (int i = local; i < transform.childCount; i++)
+        for (int i = index + 1; i < transform.childCount; i++)
         {
             (int count, Sprite sprite) = transform.GetChild(i).gameObject.GetComponent<WaveBlock>().Summary();
             counts.Add(count);

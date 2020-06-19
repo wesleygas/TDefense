@@ -20,7 +20,16 @@ public class Phase : MonoBehaviour
             local = 0;
         }
 
-        return transform.GetChild(local).gameObject.GetComponent<Wave>().Summary();
+        bool enemies = RemainderEnemies();
+
+        if (enemies)
+        {
+            return transform.GetChild(local).gameObject.GetComponent<Wave>().Summary();
+        }
+        else
+        {
+            return transform.GetChild(local + 1).gameObject.GetComponent<Wave>().Summary();
+        }
     }
     public bool RemainderWaves()
     {
