@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
-        if ((target.position - transform.position).magnitude < 0.1)
+        if ((target.position - transform.position).magnitude < 0.5)
         {
             GameState.habitants -= damage;
             Destroy(gameObject);
