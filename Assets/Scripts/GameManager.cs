@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+
+                Debug.Log("aqui!");
                 GameOver();
             }
         }
@@ -103,13 +105,13 @@ public class GameManager : MonoBehaviour
             {
                 startText.text = "ENABLE FF";
                 Time.timeScale = 1f;
-                if(audioManager) audioManager.Play("restoreTime");
+                if (audioManager) audioManager.Play("restoreTime");
             }
             else
             {
                 startText.text = " >> FF >>";
                 Time.timeScale = ff_scale;
-                if(audioManager) audioManager.Play("fastTime");
+                if (audioManager) audioManager.Play("fastTime");
             }
             isFF = !isFF;
         }
@@ -117,24 +119,31 @@ public class GameManager : MonoBehaviour
         {
             phase.SendMessage("Go");
             hasStarted = true;
+            Time.timeScale = 1f;
             startText.text = "ENABLE FF";
         }
     }
 
-    public void startPower(int cost){
+    public void startPower(int cost)
+    {
         CurrencyManager currencyManager = FindObjectOfType<CurrencyManager>();
-        if(currencyManager.useEnergy(cost)){
+        if (currencyManager.useEnergy(cost))
+        {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("tower");
-            foreach(GameObject enemy in enemies){
+            foreach (GameObject enemy in enemies)
+            {
                 enemy.SendMessage("startPower");
             }
         }
-        
+
     }
 
     public void ResetToggleFF()
     {
         startText.text = "START";
+        isFF = false;
+        Time.timeScale = 1f;
+
     }
 
 }
