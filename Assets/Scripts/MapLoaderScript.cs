@@ -12,6 +12,6 @@ public class MapLoaderScript : MonoBehaviour
     {
         GameState.reset();
         Maps.currentMap = map;
-        SceneManager.LoadScene("Mapa"+(map+1).ToString());
+        SceneManager.LoadScene("Mapa"+(map).ToString());
     }
 }
