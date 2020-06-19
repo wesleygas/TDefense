@@ -18,6 +18,7 @@ public class Wave : MonoBehaviour
 
     void Go()
     {
+        Debug.Log("Start Wave " + gameObject.name);
         canGo = true;
     }
 
@@ -37,6 +38,20 @@ public class Wave : MonoBehaviour
         return (counts, sprites);
     }
 
+
+    public int Count()
+    {
+        int count = 0;
+        if (index == 0) return count;
+
+        for (int i = index - 1; i < transform.childCount; i++)
+        {
+            count += transform.GetChild(i).gameObject.GetComponent<WaveBlock>().Count();
+        }
+
+        return count;
+
+    }
     void Update()
     {
         if (canGo && index < transform.childCount && (Time.time - last > delay))
