@@ -213,11 +213,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 3
-  radius: 4
+  radius: 5
   bullet: {fileID: 0}
   laserShot: {fileID: 82533128759778450}
   isLaser: 1
-  LaserDamage: 15
+  LaserDamage: 25
   targetsAir: 0
   targetsGround: 1
   powerIndicator: {fileID: 2734717402362397309}

@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafeb3d9dadd048e388265692e4b08d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 10
+  lifes: 15
   coins: 30
   damage: 1
   speed: 0.8

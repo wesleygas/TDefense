@@ -354,8 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707b50784f2f44fac8ea7d6e575c2d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 3
-  radius: 4
+  delay: 2.5
+  radius: 5
   bullet: {fileID: 3829144118698396119, guid: bac07e39fe25b334793aa0a113a3d472, type: 3}
   laserShot: {fileID: 0}
   isLaser: 0
