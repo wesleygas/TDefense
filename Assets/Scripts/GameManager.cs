@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float ff_scale = 3f;
     float currTimeScale;
     public GameObject pauseMenu;
+    public int sceneHabitants;
 
     private GameObject phase;
 
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     TextMeshProUGUI startText;
     void Start()
     {
+        GameState.habitants = sceneHabitants;
+        GameState.maxHabitants = sceneHabitants;
         startText = startButton.GetComponentInChildren<TextMeshProUGUI>();
         audioManager = FindObjectOfType<AudioManager>();
         phase = GameObject.Find("phase");

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1695164687267761016}
   - component: {fileID: 6076472657975014865}
   m_Layer: 0
-  m_Name: Enemy4 1
+  m_Name: Enemy4
   m_TagString: airEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,8 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b36e79edc2604d8ea0e4bd0fc38c736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
+  lifes: 10
   coins: 100
   damage: 1
-  speed: 3
+  speed: 2
   move: 0
