@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-public class EnemyFLy : MonoBehaviour
+
+public class EnemyFly : MonoBehaviour
 {
     private Animator animator;
     private Transform target;
@@ -40,10 +41,11 @@ public class EnemyFLy : MonoBehaviour
 
     public void Update()
     {
-        if (target.position.y <= transform.position.y)
+        if (target.position.x <= transform.position.x)
         {
             GameState.habitants -= damage;
             Destroy(gameObject);
+            return;
         }
 
         if (move)
